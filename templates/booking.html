@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Car | Sairaj Motors</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background: #071426;
+            color: white;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background: #0b1f36;
+
+            padding: 15px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            width: 120px;
+            margin-left: 30px;
+        }
+
+
+        .logo img {
+            width: 100%;
+            display: block;
+        }
+
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+
+        nav ul li a {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+
+        nav ul li a:hover {
+            color: #b5741f;
+
+            border-bottom: 2px solid #b5741f;
+
+            font-weight: 600;
+        }
+
+
+        nav button {
+            border: none;
+
+            padding: 12px 35px;
+
+            background: #b5741f;
+
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            color: #fff;
+
+            font-weight: 600;
+
+            border-radius: 2rem;
+
+            margin-right: 50px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        nav button:hover {
+            transform: scale(0.9);
+        }
+
+
+        /* BOOKING SECTION */
+
+        .booking-section {
+
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: 70px auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 45px;
+
+            align-items: center;
+        }
+
+
+        /* LEFT SIDE */
+
+        .booking-info h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .booking-info h1 span {
+
+            color: #b5741f;
+        }
+
+
+        .booking-info p {
+
+            color: #b7c4d9;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .booking-box {
+
+            background: #102845;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border-left: 4px solid #b5741f;
+        }
+
+
+        .booking-box h3 {
+
+            color: #00c3ff;
+
+            margin-bottom: 15px;
+        }
+
+
+        .booking-box p {
+
+            margin-bottom: 8px;
+
+            color: #d8e1ed;
+        }
+
+
+        /* FORM */
+
+        .booking-form {
+
+            background: #102845;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+
+        .booking-form h2 {
+
+            margin-bottom: 25px;
+
+            font-size: 28px;
+        }
+
+
+        .booking-form h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 70px;
+
+            height: 3px;
+
+            background: #b5741f;
+
+            margin-top: 10px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #d8e1ed;
+
+            font-size: 14px;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 7px;
+
+            outline: none;
+
+            background: #071426;
+
+            color: white;
+
+            font-size: 15px;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #b5741f;
+        }
+
+
+        .form-group textarea {
+
+            resize: vertical;
+
+            min-height: 90px;
+        }
+
+
+        /* DATE */
+
+        input[type="date"] {
+
+            color-scheme: dark;
+        }
+
+
+        /* BUTTON */
+
+        .confirm-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #b5741f;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .confirm-btn:hover {
+
+            background: #d18a27;
+
+            transform: scale(0.98);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            background: #0b1f36;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 60px;
+
+            color: #9baec5;
+
+            font-size: 14px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+
+            nav ul li {
+                margin: 8px 12px;
+            }
+
+
+            nav button {
+                margin-right: 0;
+            }
+
+
+            .booking-section {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors">
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+
+    <!--      BOOKING
+ -->
+
+    <section class="booking-section">
+
+
+        <!-- LEFT INFORMATION -->
+
+        <div class="booking-info">
+
+            <h1>
+                Book Your <span>Car</span>
+            </h1>
+
+            <p>
+                Complete the booking form to reserve
+                your selected car with Sairaj Motors.
+            </p>
+
+
+            <div class="booking-box">
+
+                <h3>
+                    Booking Information
+                </h3>
+
+                <p>
+                    <strong>Customer:</strong>
+                    {{ session["user_name"] }}
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    {{ session["user_email"] }}
+                </p>
+
+                <p>
+                    <strong>Car ID:</strong>
+                    {{ car_id }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKING FORM -->
+
+        <div class="booking-form">
+
+            <h2>
+                BOOKING DETAILS
+            </h2>
+
+
+            <form action="{{ url_for(
+                'booking_form',
+                car_id=car_id
+            ) }}" method="POST">
+
+
+                <!-- BOOKING DATE -->
+
+                <div class="form-group">
+
+                    <label for="booking_date">
+                        Booking Date
+                    </label>
+
+                    <input type="date" id="booking_date" name="booking_date" required>
+
+                </div>
+
+
+                <!-- MOBILE NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="mobile_number">
+                        Mobile Number
+                    </label>
+
+                    <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter mobile number"
+                        required>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message / Requirement
+                    </label>
+
+                    <textarea id="message" name="message" placeholder="Any special requirement?"></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button type="submit" class="confirm-btn">
+
+                    CONFIRM BOOKING
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!--      FOOTER
+ -->
+
+    <footer>
+
+        © 2026 Sairaj Motors | All Rights Reserved
+
+    </footer>
+
+
+</body>
+
+</html>

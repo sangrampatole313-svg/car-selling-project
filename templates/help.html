@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Center</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#08192e;
+color:white;
+}
+
+.help{
+width:90%;
+margin:auto;
+padding:60px 0;
+}
+
+.help h1{
+text-align:center;
+margin-top: 100px;
+font-size:45px;
+color:#00d9ff;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+text-transform: uppercase;
+}
+
+.help p{
+text-align:center;
+
+color:#dcad1f;
+margin-top:15px;
+margin-bottom:50px;
+font-size:18px;
+font-family:  Georgia, 'Times New Roman', Times, serif;
+text-transform: uppercase;
+}
+
+.help-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:#102746;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+box-shadow:0 0 15px rgba(0,0,0,.3);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #00d9ff;
+}
+
+.card i{
+font-size:50px;
+color:#00d9ff;
+margin-bottom:20px;
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+.card p{
+font-size:15px;
+line-height:1.8;
+color:#ddd;
+margin-bottom:20px;
+}
+
+.card button{
+padding:12px 25px;
+border:none;
+background:#00d9ff;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.card button:hover{
+background:#008fb3;
+}
+
+.support{
+margin-top:60px;
+background:#102746;
+padding:40px;
+border-radius:15px;
+text-align:center;
+}
+
+.support h2{
+font-size:35px;
+margin-bottom:20px;
+}
+
+.support p{
+color:#ddd;
+margin-bottom:25px;
+}
+
+.support a{
+display:inline-block;
+padding:14px 30px;
+background:#00d9ff;
+text-decoration:none;
+color:white;
+border-radius:8px;
+font-size:18px;
+}
+
+.support a:hover{
+background:#0099cc;
+}
+
+
+footer{
+ 
+    background:#2f86ff;
+    text-align:center;
+    padding:20px;
+    color:#ffffff;
+}
+         nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11, 31, 54, 0.90);
+
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: #00c3ff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c3ff;
+        }
+
+        nav button {
+            border: none;
+            padding: 12px 30px;
+            background: #b5741f;
+            color: white;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            transform: scale(0.95);
+        }
+
+          
+         .logo{
+                 width: 120px;
+                 margin-left: 30px;
+             }       
+
+</style>
+
+</head>
+<body>
+
+          <nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors"
+        >
+
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+<section class="help">
+
+<h1>Help Center</h1>
+
+<p>We're here to help you buy or sell your car safely.</p><hr><br>
+
+<div class="help-box">
+
+<div class="card">
+<i class="fas fa-question-circle"></i>
+<h2>FAQs</h2>
+<p>Find answers to common questions about buying, selling, payments and vehicle inspection.</p>
+
+</div>
+
+<div class="card">
+<i class="fas fa-phone-volume"></i>
+<h2>Customer Support</h2>
+<p>Need assistance? Our support team is available 24×7 to help you with any issue.</p>
+
+</div>
+
+<div class="card">
+<i class="fas fa-file-signature"></i>
+<h2>Documentation</h2>
+<p>Learn about RC transfer, insurance transfer and ownership verification.</p>
+
+</div>
+
+<div class="card">
+<i class="fas fa-car-side"></i>
+<h2>Vehicle Inspection</h2>
+<p>Know how we inspect every vehicle before listing it on our website.</p>
+
+</div>
+
+<div class="card">
+<i class="fas fa-money-check-alt"></i>
+<h2>Payment Help</h2>
+<p>Secure online payments, refunds and EMI support information.</p>
+
+</div>
+
+<div class="card">
+<i class="fas fa-envelope-open-text"></i>
+<h2>Email Support</h2>
+<p>Still have questions? Contact us anytime through email.</p>
+
+</div>
+
+</div>
+
+<div class="support">
+
+<h2>Need More Help?</h2>
+
+<p>Email : support@carshop.com</p>
+
+<p>Phone : +91 9876543210</p>
+
+<a href="contactmore.html">Contact Support</a>
+
+</div>
+
+</section>
+<footer>
+       
+© 2026 Sairaj Motors | All Rights Reserved  
+</footer>
+
+</body>
+</html>

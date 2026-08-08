@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sairaj Motors</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #071426;
+            color: white;
+            overflow-x: hidden;
+        }
+
+
+        /* 
+           NAVIGATION
+         */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11, 31, 54, 0.90);
+
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: #00c3ff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c3ff;
+        }
+
+        nav button {
+            border: none;
+            padding: 12px 30px;
+            background: #b5741f;
+            color: white;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            transform: scale(0.95);
+        }
+
+
+        /* 
+           HERO SLIDER
+         */
+
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+
+            transition: 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            animation: zoom 12s linear infinite;
+        }
+
+        @keyframes zoom {
+
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(rgba(2, 12, 30, 0.55),
+                    rgba(3, 10, 25, 0.80));
+        }
+
+        .content {
+            position: absolute;
+
+            top: 50%;
+            left: 8%;
+
+            transform: translateY(-50%);
+
+            color: white;
+
+            max-width: 650px;
+
+            z-index: 5;
+        }
+
+        .content h1 {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 24px;
+            color: #ddd;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 15px 40px;
+
+            background: #0058ff;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 40px;
+
+            font-size: 18px;
+
+            transition: 0.4s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #0058ff;
+        }
+
+
+        /* 
+           SLIDER DOTS
+         */
+
+        .dots {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+            gap: 12px;
+
+            z-index: 10;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: 0.5;
+
+            cursor: pointer;
+        }
+
+        .dot.active {
+            opacity: 1;
+            background: #0058ff;
+        }
+
+
+        /* 
+           FEATURES
+         */
+
+        .features {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 30px 40px;
+
+            background: #08192f;
+
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            color: white;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: #0a55ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+        }
+
+        .feature-box h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .feature-box p {
+            color: #b7c4d9;
+            font-size: 15px;
+        }
+
+
+        /* 
+           STATISTICS
+         */
+
+        .stats {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 80px auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                    minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .stat {
+            background: #102845;
+
+            text-align: center;
+
+            padding: 35px;
+
+            border-radius: 15px;
+        }
+
+        .stat h1 {
+            font-size: 45px;
+            color: #00bfff;
+        }
+
+        .stat p {
+            margin-top: 10px;
+            color: white;
+        }
+
+
+        /* 
+           MISSION
+         */
+
+        .mission {
+            width: 80%;
+            max-width: 1200px;
+
+            margin: 70px auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                    minmax(300px, 1fr));
+
+            gap: 30px;
+        }
+
+        .mission .box {
+            background: #102845;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            color: white;
+
+            line-height: 1.7;
+        }
+
+
+        /* 
+           SERVICES
+         */
+
+        .title {
+            text-align: center;
+            color: #00bfff;
+            margin-bottom: 30px;
+        }
+
+        .services {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 40px auto 70px;
+        }
+
+        .service-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                    minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .service {
+            background: #102845;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        /* 
+           CATEGORIES
+         */
+
+        .categories {
+            padding: 60px 6% 100px;
+
+            text-align: center;
+        }
+
+        .categories h1 {
+            color: white;
+
+            font-size: 42px;
+
+            letter-spacing: 1px;
+        }
+
+        .line {
+            width: 90px;
+            height: 4px;
+
+            background: #0b63ff;
+
+            margin: 15px auto 45px;
+
+            border-radius: 20px;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                    minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background: #0c1d38;
+
+            border: 1px solid rgba(255, 255, 255, .08);
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 0 25px rgba(0, 102, 255, .45);
+        }
+
+        .card img {
+            width: 100px;
+            height: 80px;
+
+            object-fit: contain;
+
+            margin-bottom: 18px;
+        }
+
+        .card h2 {
+            color: #1b6dff;
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+        }
+
+        .card a:hover {
+            color: #00c3ff;
+        }
+
+
+        /* 
+           FOOTER
+         */
+
+        footer {
+            background: #1752a3;
+
+            text-align: center;
+
+            padding: 20px;
+
+            color: #ccc;
+        }
+
+         
+         .logo1{
+                 width: 120px;
+                 margin-left: 6px;
+             }
+        /* 
+           RESPONSIVE
+         */
+
+        @media(max-width: 768px) {
+
+            nav {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+            .hero-slider {
+                height: 75vh;
+            }
+
+            .content {
+                left: 5%;
+                right: 5%;
+            }
+
+            .content h1 {
+                font-size: 40px;
+            }
+
+            .content p {
+                font-size: 18px;
+            }
+
+            .features {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!---->
+     NAVIGATION -->
+
+    <header>
+
+      <nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors"
+        >
+
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+
+        <!--
+             USER IS LOGGED IN
+         -->
+
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+    </header>
+    <!---HERO SLIDER -->
+
+    <section class="hero-slider">
+
+
+        <!-- SLIDE 1 -->
+
+        <div class="slide active">
+
+            <img src="{{ url_for('static',
+            filename='scorpio.avif') }}" alt="Scorpio">
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <h1>
+                    Premium Quality Used Cars
+                </h1>
+
+                <p>
+                    Find Your Dream Car At Best Price
+                </p>
+
+                <a href="{{ url_for('contactmore') }}" class="btn">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 2 -->
+
+        <div class="slide">
+
+            <img src="{{ url_for('static',
+            filename='fortuner.jpg') }}" alt="Fortuner">
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <h1>
+                    Luxury SUV Collection
+                </h1>
+
+                <p>
+                    Certified Cars With Warranty
+                </p>
+
+                <a href="{{ url_for('contactmore') }}" class="btn">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 3 -->
+
+        <div class="slide">
+
+            <img src="{{ url_for('static',
+            filename='range.jpg') }}" alt="Luxury Car">
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <h1>
+                    Best Price Guarantee
+                </h1>
+
+                <p>
+                    Finance Available • Easy EMI
+                </p>
+
+                <a href="{{ url_for('contactmore') }}" class="btn">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DOTS -->
+
+        <div class="dots">
+
+            <div class="dot active"></div>
+
+            <div class="dot"></div>
+
+            <div class="dot"></div>
+
+        </div>
+
+    </section>
+
+
+    <!---->
+     FEATURES -->
+
+    <section class="features">
+
+
+        <div class="feature-box">
+
+            <div class="icon">🛡️</div>
+
+            <div>
+
+                <h3>
+                    Trusted Dealership
+                </h3>
+
+                <p>
+                    Quality you can trust
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <div class="icon">🚙</div>
+
+            <div>
+
+                <h3>
+                    Wide Range of Cars
+                </h3>
+
+                <p>
+                    Hatchbacks, SUVs & more
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <div class="icon">🏷️</div>
+
+            <div>
+
+                <h3>
+                    Best Price Guarantee
+                </h3>
+
+                <p>
+                    Get the best deals
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <div class="icon">🛠️</div>
+
+            <div>
+
+                <h3>
+                    After Sales Service
+                </h3>
+
+                <p>
+                    We care for your car
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!---->
+     STATISTICS -->
+
+    <section class="stats">
+
+
+        <div class="stat">
+
+            <h1>500+</h1>
+
+            <p>
+                Cars Sold
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h1>350+</h1>
+
+            <p>
+                Happy Customers
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h1>8+</h1>
+
+            <p>
+                Years Experience
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h1>50+</h1>
+
+            <p>
+                Cars Available
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!---->
+     MISSION -->
+
+    <section class="mission">
+
+
+        <div class="box">
+
+            <p>
+
+                To provide affordable,
+                high-quality second-hand cars
+                with complete transparency
+                and excellent customer service.
+
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <p>
+
+                To become the most trusted
+                and preferred used car dealership
+                in Maharashtra by delivering
+                value and customer satisfaction.
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!---->
+     SERVICES -->
+
+    <h1 class="title">
+        OUR SERVICES
+    </h1>
+
+
+    <section class="services">
+
+        <div class="service-list">
+
+            <div class="service">
+                🚗 Buy Used Cars
+            </div>
+
+            <div class="service">
+                💸 Sell Your Car
+            </div>
+
+            <div class="service">
+                🔄 Car Exchange
+            </div>
+
+            <div class="service">
+                🏦 Finance Assistance
+            </div>
+
+            <div class="service">
+                📄 RC Transfer
+            </div>
+
+            <div class="service">
+                🛡 Insurance Support
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!---->
+     POPULAR CATEGORIES -->
+
+    <section class="categories">
+
+
+        <h1>
+            POPULAR CATEGORIES
+        </h1>
+
+        <div class="line"></div>
+
+
+        <div class="cards">
+
+
+            <!-- HATCHBACK -->
+
+            <div class="card">
+
+                <img src="{{ url_for(
+                    'static',
+                    filename='hatchbacks.png'
+                ) }}" alt="Hatchbacks">
+
+                <h2>
+                    HATCHBACKS
+                </h2>
+
+                <a href="{{ url_for('hatchbacks') }}">
+                    View Cars →
+                </a>
+
+            </div>
+
+
+            <!-- SUV -->
+
+            <div class="card">
+
+                <img src="{{ url_for(
+                    'static',
+                    filename='suvs.png'
+                ) }}" alt="SUVs">
+
+                <h2>
+                    SUVS
+                </h2>
+
+                <a href="{{ url_for('suvs') }}">
+                    View Cars →
+                </a>
+
+            </div>
+
+
+            <!-- SEDAN -->
+
+            <div class="card">
+
+                <img src="{{ url_for(
+                    'static',
+                    filename='sedans.png'
+                ) }}" alt="Sedans">
+
+                <h2>
+                    SEDANS
+                </h2>
+
+                <a href="{{ url_for('sedans') }}">
+                    View Cars →
+                </a>
+
+            </div>
+
+
+            <!-- LUXURY -->
+
+            <div class="card">
+
+                <img src="{{ url_for(
+                    'static',
+                    filename='luxury.png'
+                ) }}" alt="Luxury Cars">
+
+                <h2>
+                    LUXURY
+                </h2>
+
+                <a href="{{ url_for('luxury') }}">
+                    View Cars →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!---->
+     FOOTER -->
+
+    <footer>
+
+        © 2026 Sairaj Motors | All Rights Reserved
+
+    </footer>
+
+
+    <!---->
+     SLIDER JAVASCRIPT -->
+
+    <script>
+
+        const slides =
+            document.querySelectorAll(".slide");
+
+        const dots =
+            document.querySelectorAll(".dot");
+
+        let current = 0;
+
+
+        function showSlide(index) {
+
+            slides.forEach(
+                slide =>
+                    slide.classList.remove("active")
+            );
+
+            dots.forEach(
+                dot =>
+                    dot.classList.remove("active")
+            );
+
+            slides[index].classList.add("active");
+
+            dots[index].classList.add("active");
+        }
+
+
+        function nextSlide() {
+
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+            showSlide(current);
+        }
+
+
+        setInterval(nextSlide, 5000);
+
+
+        dots.forEach((dot, index) => {
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    current = index;
+
+                    showSlide(current);
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

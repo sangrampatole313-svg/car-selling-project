@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#071426;
+color:white;
+}
+
+header{
+text-align:center;
+padding:50px 20px;
+}
+
+header h1{
+font-size:45px;
+color:#00c8ff;
+margin-bottom:10px;
+margin-top: 65px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+text-transform: uppercase;
+}
+
+header p{
+font-size:18px;
+color:#ccc;
+font-family:  Georgia, 'Times New Roman', Times, serif;
+color:#dcad1f;
+text-transform: uppercase;
+
+}
+
+.container{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+padding-bottom:60px;
+}
+
+.card{
+background:#102746;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px #00c8ff;
+}
+
+.card img{
+width:100%;
+height:180px;
+border-radius:10px;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+.card p{
+color:#ddd;
+line-height:1.7;
+}
+
+button{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+background:#00c8ff;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0099cc;
+}
+
+footer{
+background:#2b7ad3;
+padding:20px;
+text-align:center;
+color:#ccc;
+}
+/* 
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#00c3ff;
+}
+nav{
+    background:#0b1f36;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00c3ff;
+}
+nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    z-index:100;
+}
+    .logo{
+                 width: 90px;
+                 margin-right: 300px;
+             }
+    .header{
+           width: 10px;
+           height: 10px;
+    }
+    nav{
+    background:#0b1f36;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#00c3ff;
+}
+nav{
+    background:#0b1f36;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.logo{
+    font-size:10px;
+    font-weight:bold;
+    color:#00c3ff;
+}
+nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    z-index:100;
+}
+
+      
+             nav{
+    background:#0b1f36;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+     
+         
+         .logo{
+                 width: 120px;
+                 margin-left: 6px;
+             }
+
+        nav ul{
+                 display: flex;
+                 align-items: center;
+                 margin-left: 100px;
+             }
+
+        nav ul li{
+                   margin: 0 20px;
+                 }
+
+        nav ul li a{
+                      font-size: 15px;
+                      color: #fff;
+                      text-transform: uppercase;
+                      
+                   }
+              
+         nav ul li a:hover{
+                             color: #b5741f;
+                             border-bottom:2px solid #b5741f ;
+                             font-weight: 600;
+
+         } */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11, 31, 54, 0.90);
+
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: #00c3ff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c3ff;
+        }
+
+        nav button {
+            border: none;
+            padding: 12px 30px;
+            background: #b5741f;
+            color: white;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            transform: scale(0.95);
+        }   
+        .logo{
+                 width: 120px;
+                 margin-left: 6px;
+             }    
+  /* .mmm{
+       border: none;
+                  
+                    padding: 12px 35px; 
+                    background: #b5741f
+                    ;
+                    font-size: 15px;
+                    text-transform: uppercase;
+                    color: #fff;
+                    font-weight: 600;
+                    border-radius:2rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                    cursor: pointer;
+                    transition: 0.3s;
+  }                      
+       
+         .mmm:hover{
+                            scale: .9s;
+                        } */
+                        
+
+                    
+</style>
+</head>
+<body>
+    <nav>
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors">
+    </a>
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+                </li>
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+    </ul>
+    <button onclick="window.location.href='{{ url_for('more') }}'"> More
+    </button>
+</nav>
+
+
+
+<header>
+
+<h1>Our Services</h1>
+
+<p>Everything you need for buying and selling used cars.</p><br><hr>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+<img src="static/www.webp">
+<h2>Buy Used Cars</h2>
+<p>Choose from hundreds of verified used cars at affordable prices.</p>
+
+</div>
+
+<div class="card">
+<img src="static\sale.jpg">
+<h2>Sell Your Car</h2>
+<p>Sell your old car quickly with instant valuation and best market price.</p>
+
+</div>
+
+<div class="card">
+<img src="static/inspection.webp">
+<h2>Car Inspection</h2>
+<p>Every vehicle is inspected by experts before being listed.</p>
+
+</div>
+
+<div class="card">
+<img src="static/Finance.webp">
+<h2>Car Finance</h2>
+<p>Easy EMI options with low interest rates from trusted banks.</p>
+
+</div>
+
+<div class="card">
+<img src="static/car insurance.avif">
+<h2>Insurance</h2>
+<p>Buy or renew your car insurance in just a few minutes.</p>
+
+</div>
+
+<div class="card">
+<img src="static/care support.jpg">
+<h2>24×7 Support</h2>
+<p>Our customer support team is available anytime to help you.</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 Sairaj Motors | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>

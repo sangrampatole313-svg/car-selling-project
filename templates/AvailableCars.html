@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Cards with Image Slider</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#071426;
+    color:white;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.slider{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    height:180px;
+}
+
+
+.slider img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:none;
+}
+
+.slider img.active{
+    display:block;
+}
+
+.prev,.next{
+
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:none;
+    background:rgba(0,0,0,.6);
+    color:#fff;
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:10;
+}
+
+
+.prev{
+    left:8px;
+}
+
+.next{
+    right:8px;
+}
+
+
+.details{
+    padding:15px;
+}
+
+.details h2{
+    margin-bottom:10px;
+}
+
+.details p{
+    margin:5px 0;
+}
+
+.price{
+    color:red;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.view{
+    display:block;
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#007bff;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.view:hover{
+    background:#0056b3;
+}
+
+.book-btn{
+    display:block;
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:#b5741f;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+    text-align:center;
+    text-decoration:none;
+    font-size:16px;
+}
+
+.book-btn:hover{
+    background:#d18a27;
+}
+
+
+
+/* Heading */
+
+.heading{
+    text-align:center;
+    padding:50px 20px 20px;
+}
+
+.heading h1{
+    font-size:42px;
+}
+
+.heading p{
+    color:#bdbdbd;
+    margin-top:10px;
+}
+
+/* Search */
+
+.search-box{
+    width:90%;
+    max-width:600px;
+    margin:20px auto 50px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    outline:none;
+}
+
+/* Cars */
+
+.container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    padding-bottom:60px;
+}
+
+.card{
+    background:#0f2744;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00c3ff;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.details{
+    padding:20px;
+}
+
+.details h2{
+    margin-bottom:12px;
+}
+
+.details p{
+    color:#d8d8d8;
+    margin:6px 0;
+}
+
+.price{
+    color:#00ff88;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+
+button:hover{
+    background:#0099cc;
+}
+
+footer{
+ 
+    background:#2f86ff;
+    text-align:center;
+    padding:20px;
+    color:#ffffff;
+}
+
+ 
+/* Heading */
+
+.heading{
+    text-align:center;
+    padding:50px 20px 20px;
+}
+
+.heading h1{
+    margin-top: 40px;
+    color: #00c3ff;
+    font-size:42px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-top: 54px;
+}
+
+.heading p{
+    color: #dcad1f;
+    margin-top:10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+nav {
+     width: 100%;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11, 31, 54, 0.95);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* LOGO */
+
+.logo {
+   
+            color: #00c3ff;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            letter-spacing: 1px;
+}
+
+
+/* NAVIGATION LIST */
+
+nav ul {
+    display: flex;
+
+    align-items: center;
+
+    list-style: none;
+    gap:25px;
+}
+
+
+/* NAVIGATION ITEMS */
+
+nav ul li {
+    margin: 0 20px;
+}
+
+
+/* NAVIGATION LINKS */
+
+nav ul li a {
+
+    color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+}
+
+
+/* HOVER */
+
+nav ul li a:hover {
+
+    color:  #00c3ff;
+
+    border-bottom: 2px solid #00c3ff;
+
+    font-weight: 600;
+}
+
+
+/* MORE BUTTON */
+
+nav button {
+
+    border: none;
+
+    padding: 12px 35px;
+
+    background: #b5741f;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    color: #fff;
+
+    font-weight: 600;
+
+    border-radius: 2rem;
+
+    margin-right: 50px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* MORE BUTTON HOVER */
+
+nav button:hover {
+
+    transform: scale(0.9);
+}
+              
+   .logo1{
+                 width: 120px;
+                 margin-left: 6px;
+             }
+                        
+</style>
+</head>
+<body>
+<nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors"
+        >
+
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+
+        <!-- =========================
+             USER IS LOGGED IN
+        ========================== -->
+
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+
+        <!-- =========================
+             USER IS NOT LOGGED IN
+        ========================== -->
+
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+
+
+<div class="heading">
+
+<h1>Available Cars</h1>
+
+<p>Choose Your Dream Car From Sai-RAJ motars.</p><br><hr>
+
+</div>
+
+<div class="container" id="cars"></div>
+
+<script>
+
+const cars = [
+
+{
+name:"Maruti Swift",
+    id:1,
+year:"2023",
+fuel:"Petrol",
+transmission:"Manual",
+km:"18,000 km",
+price:"₹6,20,000",
+images:[
+"static/innova1.jpeg",
+"static/innova2.jpeg",
+"static/innova3.jpeg",
+"static/innova4.jpeg",
+"static/innova5.jpeg",
+
+]
+},
+
+{
+name:"Hyundai i20",
+    id:2,
+year:"2022",
+fuel:"Petrol",
+transmission:"Automatic",
+km:"15,000 km",
+price:"₹8,10,000",
+images:[
+"static/indevour1.jpeg",
+"static/indevour2.jpeg",
+"static/indevour3.jpeg",
+"static/indevour4.jpeg",
+"static/indevour5.jpeg",
+"static/indevour6.jpeg",
+"static/indevour7.jpeg",
+"static/indevour8.jpeg",
+"static/indevour9.jpeg",
+"static/indevour10.jpeg",
+"static/indevour11.jpeg",
+]
+},
+
+{
+name:"Honda City",
+    id:3,
+year:"2021",
+fuel:"Petrol",
+transmission:"Manual",
+km:"30,000 km",
+price:"₹9,50,000",
+images:[
+"static/xuv700.jpeg",
+"static/xuv7001.jpeg",
+"static/xuv7002.jpeg",
+"static/xuv7003.jpeg",
+"static/xuv7004.jpeg",
+"static/xuv7005.jpeg",
+]
+},
+
+{
+name:"Toyota Fortuner",
+    id:4,
+year:"2023",
+fuel:"Diesel",
+transmission:"Automatic",
+km:"12,000 km",
+price:"₹38,00,000",
+images:[
+"static/ghoda1.jpeg",
+"static/ghoda2.jpeg",
+"static/ghoda3.jpeg",
+"static/ghoda.jpeg",
+"static/ghoda4.jpeg",
+"static/ghoda5.jpeg",
+
+]
+},
+
+{
+name:"BMW X1",
+    id:5,
+year:"2022",
+fuel:"Diesel",
+transmission:"Automatic",
+km:"10,000 km",
+price:"₹45,00,000",
+images:[
+"static/dddd1.jpeg",
+"static/dddd.jpeg",
+"static/dddd2.jpeg",
+"static/dddd3.jpeg",
+"static/dddd4.jpeg",
+"static/dddd5.jpeg",
+]
+},
+
+{
+name:"Mahindra Thar",
+    id:6,
+year:"2023",
+fuel:"Diesel",
+transmission:"Manual",
+km:"8,000 km",
+price:"₹16,50,000",
+images:[
+"static/xss.jpeg",
+"static/xss1.jpeg",
+"static/xss2.jpeg",
+"static/xss3.jpeg",
+"static/xss4.jpeg",
+"static/xss5.jpeg",
+"static/xss6.jpeg",
+"static/xss7.jpeg",
+]
+},
+
+{
+name:"Kia Seltos",
+    id:7,
+year:"2022",
+fuel:"Petrol",
+transmission:"Automatic",
+km:"20,000 km",
+price:"₹14,00,000",
+images:[
+"static/seltos1.jpg",
+"static/seltos2.jpg",
+"static/seltos3.jpg"
+]
+},
+
+{
+name:"Tata Nexon",
+    id:8,
+year:"2023",
+fuel:"Petrol",
+transmission:"Manual",
+km:"12,000 km",
+price:"₹10,50,000",
+images:[
+"static/nexon1.jpg",
+"static/nexon2.jpg",
+"static/nexon3.jpg"
+]
+},
+
+{
+name:"Hyundai Creta",
+    id:9,
+year:"2021",
+fuel:"Diesel",
+transmission:"Automatic",
+km:"25,000 km",
+price:"₹15,80,000",
+images:[
+"static/creta1.jpg",
+"static/creta2.jpg",
+"static/creta3.jpg"
+]
+},
+
+{
+name:"Volkswagen Virtus",
+    id:10,
+year:"2024",
+fuel:"Petrol",
+transmission:"Automatic",
+km:"5,000 km",
+price:"₹16,90,000",
+images:[
+"static/virtus1.jpg",
+"static/virtus2.jpg",
+"static/virtus3.jpg"
+]
+}
+
+];
+
+const container = document.getElementById("cars");
+
+cars.forEach((car,index)=>{
+
+let images="";
+
+car.images.forEach((img,i)=>{
+images += `<img src="${img}" class="${i==0?'active':''}">`;
+});
+
+container.innerHTML += `
+<div class="card">
+
+<div class="slider" data-index="0">
+
+${images}
+
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+
+</div>
+
+<div class="details">
+<h2>${car.name}</h2>
+<p>Year : ${car.year}</p>
+<p>Fuel : ${car.fuel}</p>
+<p>Transmission : ${car.transmission}</p>
+<p>Km Driven : ${car.km}</p>
+
+<div class="price">${car.price}</div>
+
+<a href="/car/${car.id}" class="view">
+    View Details
+</a>
+
+<a href="/book/${car.id}" class="book-btn">
+    Book Now
+</a>
+</div>
+
+</div>
+`;
+
+});
+
+document.querySelectorAll(".slider").forEach(slider=>{
+
+const imgs = slider.querySelectorAll("img");
+
+let current = 0;
+
+function show(){
+imgs.forEach(img=>img.classList.remove("active"));
+imgs[current].classList.add("active");
+}
+
+slider.querySelector(".next").onclick=()=>{
+current++;
+if(current>=imgs.length) current=0;
+show();
+}
+
+slider.querySelector(".prev").onclick=()=>{
+current--;
+if(current<0) current=imgs.length-1;
+show();
+}
+
+let startX=0;
+
+slider.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend",e=>{
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX-endX>50){
+current++;
+if(current>=imgs.length) current=0;
+show();
+}
+
+if(endX-startX>50){
+current--;
+if(current<0) current=imgs.length-1;
+show();
+}
+
+});
+
+});
+
+</script>
+<footer>
+
+© 2026 Sairaj Motors | All Rights Reserved
+
+</footer>
+
+</body>
+</html>

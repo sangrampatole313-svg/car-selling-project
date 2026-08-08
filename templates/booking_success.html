@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Successful | Sairaj Motors</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: #071426;
+
+            color: white;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        /*  NAVIGATION  */
+
+        nav {
+            background: #0b1f36;
+
+            padding: 15px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+
+            margin-left: 30px;
+        }
+
+        .logo img {
+            width: 100%;
+
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+
+            align-items: center;
+
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            font-size: 15px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #b5741f;
+
+            border-bottom: 2px solid #b5741f;
+        }
+
+        nav button {
+            border: none;
+
+            padding: 12px 35px;
+
+            background: #b5741f;
+
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            color: #fff;
+
+            font-weight: 600;
+
+            border-radius: 2rem;
+
+            margin-right: 50px;
+
+            cursor: pointer;
+        }
+
+
+        /*  SUCCESS  */
+
+        .success-container {
+
+            flex: 1;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+        .success-box {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            background: #102845;
+
+            padding: 50px 40px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* SUCCESS ICON */
+
+        .success-icon {
+
+            width: 90px;
+
+            height: 90px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background: #198754;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 50px;
+
+            font-weight: bold;
+        }
+
+
+        .success-box h1 {
+
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .success-box h1 span {
+
+            color: #b5741f;
+        }
+
+
+        .success-box p {
+
+            color: #c6d2e2;
+
+            line-height: 1.7;
+
+            margin-bottom: 12px;
+
+            font-size: 16px;
+        }
+
+
+        .booking-message {
+
+            background: #071426;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            margin: 25px 0;
+
+            color: #dce5ef;
+        }
+
+
+        .booking-message strong {
+
+            color: #b5741f;
+        }
+
+
+        /*  BUTTONS  */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .home-btn {
+
+            background: #b5741f;
+
+            color: white;
+        }
+
+
+        .home-btn:hover {
+
+            background: #d18a27;
+
+            transform: scale(0.97);
+        }
+
+
+        .bookings-btn {
+
+            background: #007bff;
+
+            color: white;
+        }
+
+
+        .bookings-btn:hover {
+
+            background: #0056b3;
+
+            transform: scale(0.97);
+        }
+
+
+        /*  FOOTER  */
+
+        footer {
+
+            background: #0b1f36;
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #9baec5;
+
+            font-size: 14px;
+        }
+
+
+        /*  MOBILE  */
+
+        @media (max-width: 800px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            nav ul li {
+
+                margin: 8px 12px;
+            }
+
+            nav button {
+
+                margin-right: 0;
+            }
+
+            .success-box {
+
+                padding: 35px 20px;
+            }
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+            .btn {
+
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors">
+    </a>
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+
+<!--  SUCCESS MESSAGE  -->
+
+<div class="success-container">
+
+    <div class="success-box">
+
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Booking <span>Successful!</span>
+        </h1>
+
+
+        <p>
+            Thank you, {{ session["user_name"] }}.
+        </p>
+
+
+        <p>
+            Your car booking has been successfully
+            submitted.
+        </p>
+
+
+        <div class="booking-message">
+
+            <strong>
+                Sairaj Motors
+            </strong>
+
+            <br>
+
+            Our team will contact you shortly
+            regarding your booking.
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a
+                href="{{ url_for('home') }}"
+                class="btn home-btn">
+
+                Back to Home
+
+            </a>
+
+
+            <a
+                href="{{ url_for('my_bookings') }}"
+                class="btn bookings-btn">
+
+                My Bookings
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!--  FOOTER  -->
+
+<footer>
+
+    © 2026 Sairaj Motors | All Rights Reserved
+
+</footer>
+
+
+</body>
+
+</html>

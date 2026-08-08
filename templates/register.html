@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Sairaj Motors</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            background: #071426;
+
+            color: white;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background: #0b1f36;
+
+            padding: 15px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            width: 120px;
+
+            margin-left: 30px;
+        }
+
+
+        .logo img {
+            width: 100%;
+
+            display: block;
+        }
+
+
+        nav ul {
+            display: flex;
+
+            align-items: center;
+
+            list-style: none;
+        }
+
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+
+        nav ul li a {
+            font-size: 15px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+
+        nav ul li a:hover {
+            color: #b5741f;
+
+            border-bottom: 2px solid #b5741f;
+
+            font-weight: 600;
+        }
+
+
+        nav button {
+            border: none;
+
+            padding: 12px 35px;
+
+            background: #b5741f;
+
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            color: #fff;
+
+            font-weight: 600;
+
+            border-radius: 2rem;
+
+            margin-right: 50px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        nav button:hover {
+            transform: scale(0.9);
+        }
+
+
+        /* ================= REGISTER SECTION ================= */
+
+        .register-section {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: 70px auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+
+        /* ================= CONTACT INFORMATION ================= */
+
+        .contact-info h2,
+        .contact-form h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 30px;
+
+            color: white;
+
+            letter-spacing: 1px;
+        }
+
+
+        .contact-info h2::after,
+        .contact-form h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 70px;
+
+            height: 3px;
+
+            background: #b5741f;
+
+            margin-top: 10px;
+        }
+
+
+        .box {
+
+            background: #102845;
+
+            padding: 18px;
+
+            margin-bottom: 15px;
+
+            border-radius: 10px;
+
+            border-left: 4px solid #b5741f;
+        }
+
+
+        .box p {
+
+            color: #d8e1ed;
+
+            line-height: 1.6;
+
+            font-size: 15px;
+        }
+
+
+        .box strong {
+
+            color: #ffffff;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .contact-form {
+
+            background: #102845;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.25);
+        }
+
+
+        form {
+
+            width: 100%;
+        }
+
+
+        form input {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            margin-bottom: 18px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.15);
+
+            border-radius: 7px;
+
+            outline: none;
+
+            background: #071426;
+
+            color: white;
+
+            font-size: 15px;
+        }
+
+
+        form input::placeholder {
+
+            color: #9baec5;
+        }
+
+
+        form input:focus {
+
+            border-color: #b5741f;
+        }
+
+
+        /* ================= REGISTER BUTTON ================= */
+
+        form button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #b5741f;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        form button:hover {
+
+            background: #d18a27;
+
+            transform: scale(0.98);
+        }
+
+
+        /* ================= LOGIN LINK ================= */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #b7c4d9;
+
+            font-size: 14px;
+        }
+
+
+        .login-link a {
+
+            color: #00c3ff;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .login-link a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #0b1f36;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 50px;
+
+            color: #9baec5;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            nav ul li {
+
+                margin: 8px 12px;
+            }
+
+
+            nav button {
+
+                margin-right: 0;
+            }
+
+
+            .register-section {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors"
+        >
+
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+
+
+    <!-- MORE BUTTON -->
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+<!--
+     REGISTRATION SECTION
+ -->
+
+<section class="register-section">
+
+
+    <!-- =================================================
+         CONTACT INFORMATION
+    ================================================== -->
+
+    <div class="contact-info">
+
+        <h2>
+            CONTACT INFORMATION
+        </h2>
+
+
+        <div class="box">
+
+            <p>
+
+                <strong>📍 ADDRESS:</strong><br>
+
+                Sairaj Motors,
+                Kedgaon,
+                Near Kinetic Chowk,
+                Ahilyanagar,
+                Maharashtra
+
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <p>
+
+                <strong>📞 PHONE:</strong><br>
+
+                +91 98765 43210
+
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <p>
+
+                <strong>✉ EMAIL:</strong><br>
+
+                info@sairajmotors.com
+
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <p>
+
+                <strong>🕒 WORKING HOURS:</strong><br>
+
+                Monday - Sunday<br>
+
+                9:00 AM - 8:00 PM
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         REGISTRATION FORM
+    ================================================== -->
+
+    <div class="contact-form">
+
+        <h2>
+            CUSTOMER REGISTRATION
+        </h2>
+
+
+        <form
+            action="{{ url_for('register') }}"
+            method="POST">
+
+
+            <!-- NAME -->
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+
+            <!-- EMAIL -->
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
+
+
+            <!-- MOBILE -->
+
+            <input
+                type="tel"
+                name="mobile_number"
+                placeholder="Mobile Number"
+                required
+            >
+
+
+            <!-- PASSWORD -->
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create Password"
+                required
+            >
+
+
+            <!-- REGISTER -->
+
+            <button type="submit">
+
+                REGISTER
+
+            </button>
+
+        </form>
+
+
+        <!-- LOGIN -->
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 Sairaj Motors | All Rights Reserved
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CarHub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+                url("static/creta.webp") no-repeat center center/cover;
+        }
+
+        .login-box {
+            width: 350px;
+            background: #081a30;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(74, 169, 216, 0.3);
+            margin-left: 120px;
+            margin-bottom: 40px;
+        }
+
+        .login-box h2 {
+            color: #dcad1f;
+            margin-bottom: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00db07;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #217c00;
+        }
+
+        p {
+            margin-top: 15px;
+        }
+
+        .review-section h1 {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 40px;
+            color: #00c3ff;
+            margin-bottom: 20px;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .review-section p {
+            text-align: center;
+            color: #dcad1f;
+            margin-bottom: 10px;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+        }
+
+        .login-box a {
+            display: block;
+            margin-top: 20px;
+            color: white;
+            font-size: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="review-section">
+
+        <h1>welcome to sairaj motars.!!</h1>
+        <p>Trusted and affordable car seller.</p><br>
+        <hr>
+
+        <br>
+        <div class="login-box">
+            <h2>SAIRAJ LOGIN</h2>
+
+            <!-- Real form now wraps the inputs and posts to /login -->
+            <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="password" name="password" placeholder="Enter yourPassword" required>
+
+                <button type="submit"><b>LOGIN</b></button>
+            </form>
+
+            <a href="/contactmore">SIGN UP</a>
+
+            {% if error %}
+            <p id="msg" style="color:red;">{{ error }}</p>
+            {% endif %}
+
+        </div>
+
+    </section>
+</body>
+
+</html>

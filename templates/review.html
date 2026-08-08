@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Reviews</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#08162c;
+}
+
+.review-section{
+width:90%;
+margin:60px auto;
+}
+
+.review-section h1{
+text-transform: uppercase;
+text-align:center;
+font-size:40px;
+color:#00c3ff;
+margin-bottom:10px;
+margin-top: 150px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.review-section p{
+text-align:center;
+color:#dcad1f;
+margin-bottom:50px;
+font-family:  Georgia, 'Times New Roman', Times, serif;
+text-transform: uppercase;
+}
+
+.review-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.review-card{
+
+background:#102746;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,.3);
+transition:.4s;
+}
+
+.review-card:hover{
+
+transform:translateY(-10px);
+box-shadow:0 0 20px #00c3ff;
+
+}
+
+.profile{
+display:flex;
+align-items:center;
+margin-bottom:20px;
+}
+
+.profile img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+margin-right:15px;
+border:3px solid #00c3ff;
+}
+
+.profile h3{
+color:white;
+margin-bottom:5px;
+}
+
+.profile span{
+color:#00ff99;
+font-size:14px;
+}
+
+.stars{
+margin:15px 0;
+color:#FFD700;
+font-size:18px;
+}
+
+.review-text{
+
+color:#ddd;
+line-height:1.7;
+font-size:15px;
+
+}
+/* nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#00c3ff;
+} */
+/* nav{
+    background:#0b1f36;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+} */
+
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00c3ff;
+}
+/* nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    z-index:100;
+} */
+    .logo{
+                 width: 90px;
+                 margin-right: 300px;
+             }
+    .header{
+           width: 10px;
+           height: 10px;
+    }
+   
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 6%;
+
+            background: rgba(11, 31, 54, 0.90);
+
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: #00c3ff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c3ff;
+        }
+
+        nav button {
+            border: none;
+            padding: 12px 30px;
+            background: #b5741f;
+            color: white;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            transform: scale(0.95);
+        }
+     nav button{
+                    border: none;
+                    padding: 12px 35px;
+                    background: #b5741f
+                    ;
+                    font-size: 15px;
+                      text-transform: uppercase;
+                    color: #fff;
+                    font-weight: 600;
+                    border-radius:2rem;
+                    margin-right: 50px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                  }
+
+         nav button:hover{
+                            scale: .9;
+                        }
+                        
+footer{
+ 
+    background:#2f86ff;
+    text-align:center;
+    padding:20px;
+    color:#ffffff;
+}
+</style>
+
+</head>
+<body>
+    
+
+          <nav>
+
+    <!-- LOGO -->
+    <a href="{{ url_for('home') }}" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='remove.png') }}"
+            alt="Sairaj Motors"
+        >
+
+    </a>
+
+
+    <!-- MAIN NAVIGATION -->
+    <ul>
+
+        <li>
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('cars') }}">
+                Available Cars
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('review') }}">
+                Review
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('help_page') }}">
+                Help
+            </a>
+        </li>
+
+        {% if session.get("user_id") %}
+
+            <li>
+                <a href="{{ url_for('my_bookings') }}">
+                    My Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    Logout
+                </a>
+            </li>
+        {% else %}
+
+            <li>
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+            </li>
+
+        {% endif %}
+
+    </ul>
+    <button
+        onclick="window.location.href='{{ url_for('more') }}'">
+
+        More
+
+    </button>
+
+</nav>
+
+
+<section class="review-section">
+
+<h1>Customer Reviews</h1>
+
+<p>Trusted by thousands of happy customers.</p><hr><br>
+
+<div class="review-container">
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static/profile.avif">
+
+<div>
+<h3>Rahul Sharma</h3>
+<span>Purchased Hyundai Creta</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="review-text">
+
+Excellent service. The car condition was exactly as shown in the photos. Documentation was completed quickly and smoothly.
+
+</div>
+
+</div>
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static/profile1.avif">
+
+<div>
+<h3>Priya Verma</h3>
+<span>Purchased Maruti Swift</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="review-text">
+
+Best website for buying second-hand cars. Affordable prices and excellent customer support.
+
+</div>
+
+</div>
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static/profile2.avif">
+
+<div>
+<h3>Amit Patel</h3>
+<span>Purchased Toyota Fortuner</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="review-text">
+
+Very professional team. I got the best deal on my Fortuner. Highly recommended.
+
+</div>
+
+</div>
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static/profile3.avif">
+
+<div>
+<h3>Neha Singh</h3>
+<span>Purchased Tata Nexon</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★★☆
+</div>
+
+<div class="review-text">
+
+The buying process was simple and transparent. I'm very satisfied with my purchase.
+
+</div>
+
+</div>
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static/profile4.avif">
+
+<div>
+<h3>Vikram Joshi</h3>
+<span>Purchased Mahindra XUV700</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★☆☆
+</div>
+
+<div class="review-text">
+
+Quality cars, honest pricing, and fast delivery. I will definitely recommend this website.
+
+</div>
+
+</div>
+
+<div class="review-card">
+
+<div class="profile">
+
+<img src="static\profile5.jpg">
+
+<div>
+<h3>Pooja Deshmukh</h3>
+<span>Purchased Kia Seltos</span>
+</div>
+
+</div>
+
+<div class="stars">
+★★★★☆
+</div>
+
+<div class="review-text">
+
+Amazing experience. The car was clean and well-maintained. Everything was exactly as promised.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<footer>
+
+© 2026 Sairaj Motors | All Rights Reserved
+
+</footer>
+
+</body>
+</html>
