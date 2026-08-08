@@ -109,7 +109,7 @@ def register():
         try:
 
             # Check whether email already exists
-            check_sql = """ SELECT idFROM usersWHERE email = %s """
+            check_sql = """ SELECT id FROM users WHERE email = %s """
             cursor.execute( check_sql, (email,))
             existing_user = cursor.fetchone()
 
