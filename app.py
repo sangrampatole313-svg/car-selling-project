@@ -119,8 +119,7 @@ def register():
                 return render_template("register.html")
 
             # Insert customer
-            sql = """INSERT INTO users(name, email, mobile_number, password) VALUES (%s, %s, %s, %s)
-            """
+            sql = """INSERT INTO users(name, email, mobile_number, password) VALUES (%s, %s, %s, %s) """
 
             values = (  name,  email,  mobile_number, password )
 
