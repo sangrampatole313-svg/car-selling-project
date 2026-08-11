@@ -24,66 +24,140 @@
             background: #071426;
             color: white;
         }
+     
+        /* ================================
+   NAVIGATION BAR
+================================ */
 
-        /* NAVIGATION */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 105px;
 
-        nav {
-            background: #0b1f36;
-            padding: 15px 8%;
+    display: grid;
+    grid-template-columns: 270px 1fr 130px;
+    column-gap: 5px;
+    align-items: center;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    column-gap: 30px;
 
-        .logo {
-            width: 120px;
-            margin-left: 30px;
-        }
+    padding: 10px 5%;
 
-        .logo img {
-            width: 100%;
-            display: block;
-        }
+    background: rgba(11, 31, 54, 0.92);
 
-        nav ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-        }
+    z-index:10;
+}
 
-        nav ul li {
-            margin: 0 20px;
-        }
 
-        nav ul li a {
-            font-size: 15px;
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
+/* ================================
+   LOGO
+================================ */
 
-        nav ul li a:hover {
-            color: #b5741f;
-            border-bottom: 2px solid #b5741f;
-        }
+nav .logo {
+    display: flex;
+    align-items: center;
+    margin-left:70px;
+    justify-content: flex-start;
 
-        nav button {
-            border: none;
-            padding: 12px 35px;
-            background: #b5741f;
-            color: white;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 2rem;
-            margin-right: 50px;
-            cursor: pointer;
-        }
+    width: 100px;
+    height: 20px;
 
-        nav button:hover {
-            transform: scale(0.95);
-        }
+    text-decoration: none;
+}
+
+nav .logo img {
+    width: 430px;
+    height: auto;
+
+    max-height: 70px;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ================================
+   NAVIGATION LINKS
+================================ */
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-left:10px;
+    padding: 0;
+
+    white-space: nowrap;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 330;
+
+    text-transform: uppercase;
+
+    transition: all 0.3s ease;
+
+    padding: 20px 0;
+}
+
+nav ul li a:hover {
+    color: #00c3ff;
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   MORE BUTTON
+================================ */
+
+nav button {
+    width: 100px;
+    height: 32px;
+
+    border: none;
+
+    padding: 0;
+
+    background: #b5741f;
+    color: white;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background: #d18a25;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(181, 116, 31, 0.4);
+}
 
         /* PAGE */
 
@@ -260,11 +334,48 @@
             }
 
         }
+        .flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.flash-message.success {
+    background: #198754;
+    color: white;
+}
+
+.flash-message.danger {
+    background: #dc3545;
+    color: white;
+}
+
+.flash-message.warning {
+    background: #b5741f;
+    color: white;
+}
 
     </style>
 
 </head>
 <body>
+    <div>{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash-message {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}</div>
 <!-- NAVIGATION -->
 <nav>
     <a href="{{ url_for('home') }}" class="logo">
