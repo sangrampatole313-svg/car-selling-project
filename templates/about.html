@@ -33,103 +33,146 @@
 
         /*
            NAVIGATION*/
+         
+        /* 
+           NAVIGATION
+         */
 
-        nav {
+        /* ================================
+   NAVIGATION BAR
+================================ */
 
-            width: 100%;
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 105px;
 
-            display: flex;
+    display: grid;
+    grid-template-columns: 270px 1fr 130px;
+    column-gap: 5px;
+    align-items: center;
 
-            justify-content: space-between;
-            align-items: center;
+    column-gap: 30px;
 
-            padding: 18px 6%;
+    padding: 10px 5%;
 
-            background: rgba(11, 31, 54, 0.95);
+    background: rgba(11, 31, 54, 0.92);
 
-            border-bottom:
-                1px solid rgba(255, 255, 255, 0.08);
-
-        }
-
-
-        .logo {
-
-            color: #00c3ff;
-
-            font-size: 24px;
-
-            font-weight: bold;
-
-            text-decoration: none;
-
-            letter-spacing: 1px;
-        }
+    z-index:10;
+}
 
 
-        nav ul {
+/* ================================
+   LOGO
+================================ */
 
-            list-style: none;
+nav .logo {
+    display: flex;
+    align-items: center;
+    margin-left:70px;
+    justify-content: flex-start;
 
-            display: flex;
+    width: 100px;
+    height: 20px;
 
-            align-items: center;
+    text-decoration: none;
+}
 
-            gap: 25px;
-        }
+nav .logo img {
+    width: 430px;
+    height: auto;
 
+    max-height: 70px;
 
-        nav ul li a {
-
-            color: white;
-
-            text-decoration: none;
-
-            font-size: 15px;
-
-            text-transform: uppercase;
-
-            transition: 0.3s;
-        }
-
-
-        nav ul li a:hover {
-
-            color: #00c3ff;
-        }
+    object-fit: contain;
+    display: block;
+}
 
 
-        button {
+/* ================================
+   NAVIGATION LINKS
+================================ */
 
-            border: none;
+nav ul {
+    list-style: none;
 
-            padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            background: #b5741f;
+    gap: 30px;
 
-            color: white;
+    margin-left:10px;
+    padding: 0;
 
-            font-size: 15px;
+    white-space: nowrap;
+}
 
-            text-transform: uppercase;
+nav ul li {
+    display: flex;
+    align-items: center;
+}
 
-            font-weight: 600;
+nav ul li a {
+    color: white;
 
-            border-radius: 2rem;
+    text-decoration: none;
 
-            cursor: pointer;
+    font-size: 15px;
+    font-weight: 330;
 
-            transition: 0.3s;
-        }
+    text-transform: uppercase;
+
+    transition: all 0.3s ease;
+
+    padding: 20px 0;
+}
+
+nav ul li a:hover {
+    color: #00c3ff;
+    transform: translateY(-2px);
+}
 
 
-        button:hover {
+/* ================================
+   MORE BUTTON
+================================ */
 
-            transform: scale(0.95);
+nav button {
+    width: 100px;
+    height: 32px;
 
-            background: #d18a27;
-        }
+    border: none;
 
+    padding: 0;
+
+    background: #b5741f;
+    color: white;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background: #d18a25;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(181, 116, 31, 0.4);
+}
+
+        
 
         /*
            PAGE HEADER*/
@@ -566,7 +609,7 @@
 
             .page-header p {
 
-                font-size: 16px;
+                font-size: 12px;
             }
 
 
@@ -576,12 +619,53 @@
             }
 
         }
+          .flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.flash-message.success {
+    background: #198754;
+    color: white;
+}
+
+.flash-message.danger {
+    background: #dc3545;
+    color: white;
+}
+
+.flash-message.warning {
+    background: #b5741f;
+    color: white;
+}
+.page-header-content p{
+                      font-size:14px;
+}
     </style>
 
 </head>
 
 
 <body>
+     <div>{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash-message {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}</div>
+
    <nav>
 
     <!-- LOGO -->
@@ -669,7 +753,7 @@
         <div class="page-header-content">
 
             <h1>
-                About <span>Sairaj Motors</span>
+                <span>SAIRAJ MOTORS</span>
             </h1>
 
             <p>
